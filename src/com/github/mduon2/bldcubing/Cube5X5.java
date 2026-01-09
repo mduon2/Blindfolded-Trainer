@@ -1,5 +1,4 @@
 package com.github.mduon2.bldcubing;
 
-public abstract class cube {
-
+public class Cube5X5 extends Cube {
 }
