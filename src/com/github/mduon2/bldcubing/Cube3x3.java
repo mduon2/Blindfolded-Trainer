@@ -171,7 +171,7 @@ public class Cube3x3 extends Cube {
             System.out.print("-");
         }
 
-        String line = String.format("\n|%c|%c|%c|\n", isColour(cornerStatus.charAt(0)), isColour(edgeStatus.charAt(0)), isColour(cornerStatus.charAt(0)));
+        String line = String.format("\n|%c|%c|%c|\n", isColour(cornerStatus.charAt(0)), isColour(edgeStatus.charAt(0)), isColour(cornerStatus.charAt(1)));
         System.out.print(line);
 
         for (int i = 0; i < 7; i++) {
@@ -186,6 +186,126 @@ public class Cube3x3 extends Cube {
         }
 
         line = String.format("\n|%c|%c|%c|\n", isColour(cornerStatus.charAt(3)), isColour(edgeStatus.charAt(2)), isColour(cornerStatus.charAt(2)));
+        System.out.print(line);
+    }
+
+    @Override
+    public void showYellow() {
+        for (int i = 0; i < 7; i++) {
+            System.out.print("-");
+        }
+
+        String line = String.format("\n|%c|%c|%c|\n", isColour(cornerStatus.charAt(20)), isColour(edgeStatus.charAt(20)), isColour(cornerStatus.charAt(21)));
+        System.out.print(line);
+
+        for (int i = 0; i < 7; i++) {
+            System.out.print("-");
+        }
+
+        line = String.format("\n|%c|%c|%c|\n", isColour(edgeStatus.charAt(23)), 'Y', isColour(edgeStatus.charAt(21)));
+        System.out.print(line);
+
+        for (int i = 0; i < 7; i++) {
+            System.out.print("-");
+        }
+
+        line = String.format("\n|%c|%c|%c|\n", isColour(cornerStatus.charAt(23)), isColour(edgeStatus.charAt(22)), isColour(cornerStatus.charAt(22)));
+        System.out.print(line);
+    }
+
+    @Override
+    public void showGreen() {
+        for (int i = 0; i < 7; i++) {
+            System.out.print("-");
+        }
+
+        String line = String.format("\n|%c|%c|%c|\n", isColour(cornerStatus.charAt(8)), isColour(edgeStatus.charAt(8)), isColour(cornerStatus.charAt(9)));
+        System.out.print(line);
+
+        for (int i = 0; i < 7; i++) {
+            System.out.print("-");
+        }
+
+        line = String.format("\n|%c|%c|%c|\n", isColour(edgeStatus.charAt(11)), 'G', isColour(edgeStatus.charAt(9)));
+        System.out.print(line);
+
+        for (int i = 0; i < 7; i++) {
+            System.out.print("-");
+        }
+
+        line = String.format("\n|%c|%c|%c|\n", isColour(cornerStatus.charAt(11)), isColour(edgeStatus.charAt(10)), isColour(cornerStatus.charAt(10)));
+        System.out.print(line);
+    }
+
+    @Override
+    public void showBlue() {
+        for (int i = 0; i < 7; i++) {
+            System.out.print("-");
+        }
+
+        String line = String.format("\n|%c|%c|%c|\n", isColour(cornerStatus.charAt(16)), isColour(edgeStatus.charAt(16)), isColour(cornerStatus.charAt(17)));
+        System.out.print(line);
+
+        for (int i = 0; i < 7; i++) {
+            System.out.print("-");
+        }
+
+        line = String.format("\n|%c|%c|%c|\n", isColour(edgeStatus.charAt(19)), 'B', isColour(edgeStatus.charAt(17)));
+        System.out.print(line);
+
+        for (int i = 0; i < 7; i++) {
+            System.out.print("-");
+        }
+
+        line = String.format("\n|%c|%c|%c|\n", isColour(cornerStatus.charAt(19)), isColour(edgeStatus.charAt(18)), isColour(cornerStatus.charAt(18)));
+        System.out.print(line);
+    }
+
+    @Override
+    public void showOrange() {
+        for (int i = 0; i < 7; i++) {
+            System.out.print("-");
+        }
+
+        String line = String.format("\n|%c|%c|%c|\n", isColour(cornerStatus.charAt(4)), isColour(edgeStatus.charAt(4)), isColour(cornerStatus.charAt(5)));
+        System.out.print(line);
+
+        for (int i = 0; i < 7; i++) {
+            System.out.print("-");
+        }
+
+        line = String.format("\n|%c|%c|%c|\n", isColour(edgeStatus.charAt(7)), 'O', isColour(edgeStatus.charAt(5)));
+        System.out.print(line);
+
+        for (int i = 0; i < 7; i++) {
+            System.out.print("-");
+        }
+
+        line = String.format("\n|%c|%c|%c|\n", isColour(cornerStatus.charAt(7)), isColour(edgeStatus.charAt(6)), isColour(cornerStatus.charAt(6)));
+        System.out.print(line);
+    }
+
+    @Override
+    public void showRed() {
+        for (int i = 0; i < 7; i++) {
+            System.out.print("-");
+        }
+
+        String line = String.format("\n|%c|%c|%c|\n", isColour(cornerStatus.charAt(12)), isColour(edgeStatus.charAt(12)), isColour(cornerStatus.charAt(13)));
+        System.out.print(line);
+
+        for (int i = 0; i < 7; i++) {
+            System.out.print("-");
+        }
+
+        line = String.format("\n|%c|%c|%c|\n", isColour(edgeStatus.charAt(15)), 'R', isColour(edgeStatus.charAt(13)));
+        System.out.print(line);
+
+        for (int i = 0; i < 7; i++) {
+            System.out.print("-");
+        }
+
+        line = String.format("\n|%c|%c|%c|\n", isColour(cornerStatus.charAt(15)), isColour(edgeStatus.charAt(14)), isColour(cornerStatus.charAt(14)));
         System.out.print(line);
     }
 
