@@ -6,6 +6,30 @@ public abstract class Cube {
 
     //no constructor because abstract class, trivial
 
+    protected void applyR() { //virtual
+        return;
+    }
+
+    protected void applyL() { //virtual
+        return;
+    }
+
+    protected void applyU() { //virtual
+        return;
+    }
+
+    protected void applyD() { //virtual
+        return;
+    }
+
+    protected void applyF() { //virtual
+        return;
+    }
+
+    protected void applyB() { //virtual
+        return;
+    }
+
     public void applyScramble(String scramble) { //virtual
         return;
     }
