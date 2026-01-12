@@ -38,28 +38,28 @@ public abstract class Cube {
         return;
     }
 
-    public void showWhite() {
-
+    protected void white_and_yellow_spacing() { //virtual
+        return;
     }
 
-    public void showYellow() {
-
+    protected void white_and_yellow_borders() { //virtual
+        return;
     }
 
-    public void showOrange() {
-
+    protected void OGRB_borders() { //virtual
+        return;
     }
 
-    public void showGreen() {
-
+    protected void showWhite() { //virtual
+        return;
     }
 
-    public void showRed() {
-
+    protected void showYellow() { //virtual
+        return;
     }
 
-    public void showBlue() {
-
+    protected void showOGRB() { //virtual
+        return;
     }
 
     public void showCube() { //virtual
