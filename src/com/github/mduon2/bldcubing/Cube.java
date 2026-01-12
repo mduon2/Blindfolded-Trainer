@@ -6,6 +6,10 @@ public abstract class Cube {
 
     //no constructor because abstract class, trivial
 
+    protected char isColour(char piece) { //virtual
+        return ' ';
+    }
+
     protected void applyR() { //virtual
         return;
     }
@@ -34,13 +38,41 @@ public abstract class Cube {
         return;
     }
 
+    public void showWhite() {
+
+    }
+
+    public void showYellow() {
+
+    }
+
+    public void showOrange() {
+
+    }
+
+    public void showGreen() {
+
+    }
+
+    public void showRed() {
+
+    }
+
+    public void showBlue() {
+
+    }
+
+    public void showCube() { //virtual
+
+    }
+
     public String edgeSolution() {
         return "";
-    }
+    } //virtual
 
     public String cornerSolution() {
         return "";
-    }
+    } //virtual
 
     public Boolean isSolved() {
         return true;

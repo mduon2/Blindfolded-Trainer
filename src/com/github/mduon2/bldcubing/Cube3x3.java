@@ -11,6 +11,23 @@ public class Cube3x3 extends Cube {
     }
 
     @Override
+    protected char isColour(char piece) {
+        if (piece - 65 < 4) { //A-D is white
+            return 'W';
+        } else if (piece - 65 < 8) { //E-H is orange
+            return 'O';
+        } else if (piece - 65 < 12) { //I-L is green
+            return 'G';
+        } else if (piece - 65 < 16) { //M-P is red
+            return 'R';
+        } else if (piece - 65 < 20) { //Q-T is blue
+            return 'B';
+        } else { //U-X is yellow
+            return 'Y';
+        }
+    }
+
+    @Override
     protected void applyR() { //virtual
         char[] edgeArray = edgeStatus.toCharArray();
         edgeArray['B' - 65] = 'J';
@@ -70,12 +87,60 @@ public class Cube3x3 extends Cube {
 
     @Override
     protected void applyU() { //virtual
-        return;
+        char[] edgeArray = edgeStatus.toCharArray();
+        edgeArray['I' - 65] = 'M';
+        edgeArray['E' - 65] = 'I';
+        edgeArray['Q' - 65] = 'E';
+        edgeArray['M' - 65] = 'Q';
+        edgeArray['A' - 65] = 'D';
+        edgeArray['B' - 65] = 'A';
+        edgeArray['C' - 65] = 'B';
+        edgeArray['D' - 65] = 'C';
+        this.edgeStatus = String.valueOf(edgeArray);
+
+        char[] cornerArray = cornerStatus.toCharArray();
+        cornerArray['I' - 65] = 'M';
+        cornerArray['E' - 65] = 'I';
+        cornerArray['Q' - 65] = 'E';
+        cornerArray['M' - 65] = 'Q';
+        cornerArray['J' - 65] = 'N';
+        cornerArray['F' - 65] = 'J';
+        cornerArray['R' - 65] = 'F';
+        cornerArray['N' - 65] = 'R';
+        cornerArray['A' - 65] = 'D';
+        cornerArray['B' - 65] = 'A';
+        cornerArray['C' - 65] = 'B';
+        cornerArray['D' - 65] = 'C';
+        this.cornerStatus = String.valueOf(cornerArray);
     }
 
     @Override
     protected void applyD() { //virtual
-        return;
+        char[] edgeArray = edgeStatus.toCharArray();
+        edgeArray['K' - 65] = 'G';
+        edgeArray['G' - 65] = 'S';
+        edgeArray['S' - 65] = 'O';
+        edgeArray['O' - 65] = 'K';
+        edgeArray['U' - 65] = 'X';
+        edgeArray['V' - 65] = 'U';
+        edgeArray['W' - 65] = 'V';
+        edgeArray['X' - 65] = 'W';
+        this.edgeStatus = String.valueOf(edgeArray);
+
+        char[] cornerArray = cornerStatus.toCharArray();
+        cornerArray['K' - 65] = 'G';
+        cornerArray['G' - 65] = 'S';
+        cornerArray['S' - 65] = 'O';
+        cornerArray['O' - 65] = 'K';
+        cornerArray['L' - 65] = 'H';
+        cornerArray['H' - 65] = 'T';
+        cornerArray['T' - 65] = 'P';
+        cornerArray['P' - 65] = 'L';
+        cornerArray['U' - 65] = 'X';
+        cornerArray['V' - 65] = 'U';
+        cornerArray['W' - 65] = 'V';
+        cornerArray['X' - 65] = 'W';
+        this.cornerStatus = String.valueOf(cornerArray);
     }
 
     @Override
@@ -98,5 +163,34 @@ public class Cube3x3 extends Cube {
             }
 
         }
+    }
+
+    @Override
+    public void showWhite() {
+        for (int i = 0; i < 7; i++) {
+            System.out.print("-");
+        }
+
+        String line = String.format("\n|%c|%c|%c|\n", isColour(cornerStatus.charAt(0)), isColour(edgeStatus.charAt(0)), isColour(cornerStatus.charAt(0)));
+        System.out.print(line);
+
+        for (int i = 0; i < 7; i++) {
+            System.out.print("-");
+        }
+
+        line = String.format("\n|%c|%c|%c|\n", isColour(edgeStatus.charAt(3)), 'W', isColour(edgeStatus.charAt(1)));
+        System.out.print(line);
+
+        for (int i = 0; i < 7; i++) {
+            System.out.print("-");
+        }
+
+        line = String.format("\n|%c|%c|%c|\n", isColour(cornerStatus.charAt(3)), isColour(edgeStatus.charAt(2)), isColour(cornerStatus.charAt(2)));
+        System.out.print(line);
+    }
+
+    @Override
+    public void showCube() {
+        
     }
 }
