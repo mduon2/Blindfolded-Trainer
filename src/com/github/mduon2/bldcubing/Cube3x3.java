@@ -205,11 +205,89 @@ public class Cube3x3 extends Cube {
     public void applyScramble(String scramble) {
         int pointer = 0;
         for (int i = 0; i < scramble.length(); i++) {
-            String move;
-            if (scramble.charAt(i) == ' ') {
+            String move = " ";
+            if (scramble.charAt(i) == ' ' && i != scramble.length() - 1) {
                 move = scramble.substring(pointer, i-1);
             }
-
+            switch (move.charAt(0)) {
+                case 'R':
+                    applyR();
+                    if (move.length() == 2) {
+                        applyR(); //if R2
+                        if (move.charAt(1) == '\'') {
+                            applyR();
+                        }
+                    } else {
+                        String error = String.format("%s is not a valid move, was executed as R", move);
+                        System.out.print(error);
+                    }
+                    break;
+                case 'L':
+                    applyL();
+                    if (move.length() == 2) {
+                        applyL(); //if L2
+                        if (move.charAt(1) == '\'') {
+                            applyL();
+                        }
+                    } else {
+                        String error = String.format("%s is not a valid move, was executed as L", move);
+                        System.out.print(error);
+                    }
+                    break;
+                case 'U':
+                    applyU();
+                    if (move.length() == 2) {
+                        applyU(); //if R2
+                        if (move.charAt(1) == '\'') {
+                            applyU();
+                        }
+                    } else {
+                        String error = String.format("%s is not a valid move, was executed as U", move);
+                        System.out.print(error);
+                    }
+                    break;
+                case 'D':
+                    applyD();
+                    if (move.length() == 2) {
+                        applyD(); //if L2
+                        if (move.charAt(1) == '\'') {
+                            applyD();
+                        }
+                    } else {
+                        String error = String.format("%s is not a valid move, was executed as D", move);
+                        System.out.print(error);
+                    }
+                    break;
+                case 'F':
+                    applyF();
+                    if (move.length() == 2) {
+                        applyF(); //if R2
+                        if (move.charAt(1) == '\'') {
+                            applyF();
+                        }
+                    } else {
+                        String error = String.format("%s is not a valid move, was executed as F", move);
+                        System.out.print(error);
+                    }
+                    break;
+                case 'B':
+                    applyB();
+                    if (move.length() == 2) {
+                        applyB(); //if L2
+                        if (move.charAt(1) == '\'') {
+                            applyB();
+                        }
+                    } else {
+                        String error = String.format("%s is not a valid move, was executed as B", move);
+                        System.out.print(error);
+                    }
+                    break;
+                default:
+                    String error = String.format("%s is not a valid move, was not executed", move);
+                    System.out.print(error);
+                    break;
+            }
+            pointer = i + 1;
         }
     }
 
