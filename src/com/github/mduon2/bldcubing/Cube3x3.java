@@ -145,12 +145,60 @@ public class Cube3x3 extends Cube {
 
     @Override
     protected void applyF() { //virtual
-        return;
+        char[] edgeArray = edgeStatus.toCharArray();
+        edgeArray['C' - 65] = 'F';
+        edgeArray['P' - 65] = 'C';
+        edgeArray['U' - 65] = 'P';
+        edgeArray['F' - 65] = 'U';
+        edgeArray['I' - 65] = 'L';
+        edgeArray['J' - 65] = 'I';
+        edgeArray['K' - 65] = 'J';
+        edgeArray['L' - 65] = 'K';
+        this.edgeStatus = String.valueOf(edgeArray);
+
+        char[] cornerArray = cornerStatus.toCharArray();
+        cornerArray['C' - 65] = 'F';
+        cornerArray['P' - 65] = 'C';
+        cornerArray['U' - 65] = 'P';
+        cornerArray['F' - 65] = 'U';
+        cornerArray['D' - 65] = 'G';
+        cornerArray['M' - 65] = 'D';
+        cornerArray['V' - 65] = 'M';
+        cornerArray['G' - 65] = 'V';
+        cornerArray['I' - 65] = 'L';
+        cornerArray['J' - 65] = 'I';
+        cornerArray['K' - 65] = 'J';
+        cornerArray['L' - 65] = 'K';
+        this.cornerStatus = String.valueOf(cornerArray);
     }
 
     @Override
     protected void applyB() { //virtual
-        return;
+        char[] edgeArray = edgeStatus.toCharArray();
+        edgeArray['A' - 65] = 'N';
+        edgeArray['H' - 65] = 'A';
+        edgeArray['W' - 65] = 'H';
+        edgeArray['N' - 65] = 'W';
+        edgeArray['Q' - 65] = 'T';
+        edgeArray['R' - 65] = 'Q';
+        edgeArray['S' - 65] = 'R';
+        edgeArray['T' - 65] = 'S';
+        this.edgeStatus = String.valueOf(edgeArray);
+
+        char[] cornerArray = cornerStatus.toCharArray();
+        cornerArray['A' - 65] = 'N';
+        cornerArray['H' - 65] = 'A';
+        cornerArray['W' - 65] = 'H';
+        cornerArray['N' - 65] = 'W';
+        cornerArray['B' - 65] = 'O';
+        cornerArray['E' - 65] = 'B';
+        cornerArray['X' - 65] = 'E';
+        cornerArray['O' - 65] = 'X';
+        cornerArray['Q' - 65] = 'T';
+        cornerArray['R' - 65] = 'Q';
+        cornerArray['S' - 65] = 'R';
+        cornerArray['T' - 65] = 'S';
+        this.cornerStatus = String.valueOf(cornerArray);
     }
 
     @Override
