@@ -202,101 +202,35 @@ public class Cube3x3 extends Cube {
     }
 
     private void apply_move(String move) {
-        switch (move.charAt(0)) {
-            case 'R':
-                applyR();
-                System.out.println("R was executed");
-                if (move.length() == 2) {
-                    applyR(); //if R2
-                    System.out.println("R2 was executed");
-                    if (move.charAt(1) == '\'') {
-                        applyR();
-                        System.out.println("R' was executed");
-                    }
-                } else if (move.length() != 1) {
-                    String error = String.format("%s is not a valid move, was executed as R\n", move);
-                    System.out.print(error);
+        int turns = 1;
+
+        if (move.length() == 2) {
+            if (move.charAt(1) == '2') {
+                turns = 2;
+            } else if (move.charAt(1) == '\'') {
+                turns = 3;
+            } else {
+                System.out.printf("%s is not a valid move, was executed as %c\n", move, move.charAt(0));
+                return;
+            }
+        } else if (move.length() != 1) {
+            System.out.printf("%s is not a valid move, was not executed\n", move);
+            return;
+        }
+
+        for (int i = 0; i < turns; i++) {
+            switch (move.charAt((0))) {
+                case 'R' -> applyR();
+                case 'L' -> applyL();
+                case 'U' -> applyU();
+                case 'D' -> applyD();
+                case 'F' -> applyF();
+                case 'B' -> applyB();
+                default -> {
+                    System.out.printf("%s is not a valid move, was not executed\n", move);
+                    return;
                 }
-                break;
-            case 'L':
-                applyL();
-                System.out.println("L was executed");
-                if (move.length() == 2) {
-                    applyL(); //if L2
-                    System.out.println("L2 was executed");
-                    if (move.charAt(1) == '\'') {
-                        applyL();
-                        System.out.println("L' was executed");
-                    }
-                } else if (move.length() != 1) {
-                    String error = String.format("%s is not a valid move, was executed as L\n", move);
-                    System.out.print(error);
-                }
-                break;
-            case 'U':
-                applyU();
-                System.out.println("U was executed");
-                if (move.length() == 2) {
-                    applyU(); //if R2
-                    System.out.println("U2 was executed");
-                    if (move.charAt(1) == '\'') {
-                        applyU();
-                        System.out.println("U' was executed");
-                    }
-                } else if (move.length() != 1) {
-                    String error = String.format("%s is not a valid move, was executed as U\n", move);
-                    System.out.print(error);
-                }
-                break;
-            case 'D':
-                applyD();
-                System.out.println("D was executed");
-                if (move.length() == 2) {
-                    applyD(); //if L2
-                    System.out.println("D2 was executed");
-                    if (move.charAt(1) == '\'') {
-                        applyD();
-                        System.out.println("D' was executed");
-                    }
-                } else if (move.length() != 1) {
-                    String error = String.format("%s is not a valid move, was executed as D\n", move);
-                    System.out.print(error);
-                }
-                break;
-            case 'F':
-                applyF();
-                System.out.println("F was executed");
-                if (move.length() == 2) {
-                    applyF(); //if R2
-                    System.out.println("F2 was executed");
-                    if (move.charAt(1) == '\'') {
-                        applyF();
-                        System.out.println("F' was executed");
-                    }
-                } else if (move.length() != 1) {
-                    String error = String.format("%s is not a valid move, was executed as F\n", move);
-                    System.out.print(error);
-                }
-                break;
-            case 'B':
-                applyB();
-                System.out.println("B was executed");
-                if (move.length() == 2) {
-                    applyB(); //if L2
-                    System.out.println("B2 was executed");
-                    if (move.charAt(1) == '\'') {
-                        applyB();
-                        System.out.println("B' was executed");
-                    }
-                } else if (move.length() != 1) {
-                    String error = String.format("%s is not a valid move, was executed as B\n", move);
-                    System.out.print(error);
-                }
-                break;
-            default:
-                String error = String.format("%s is not a valid move, was not executed\n", move);
-                System.out.print(error);
-                break;
+            }
         }
     }
 
@@ -307,13 +241,13 @@ public class Cube3x3 extends Cube {
         for (int i = 0; i < scramble.length(); i++) {
             if (scramble.charAt(i) == ' ') {
                 move = scramble.substring(pointer, i);
-                System.out.println(String.format("\nMOVE THAT SHOULD BE MADE \"%s\"\n", move));
+                System.out.printf("\nMOVE THAT SHOULD BE MADE \"%s\"\n", move);
                 pointer = i + 1;
             }
             apply_move(move);
         }
         move = scramble.substring(pointer);
-        System.out.println(String.format("\nMOVE THAT SHOULD BE MADE \"%s\"\n", move));
+        System.out.printf(String.format("\nMOVE THAT SHOULD BE MADE \"%s\"\n", move));
         apply_move(move);
     }
 
