@@ -29,31 +29,33 @@ public class Cube3x3 extends Cube {
 
     @Override
     protected void applyR() { //virtual
-        char[] edgeArray = edgeStatus.toCharArray();
-        edgeArray['B' - 65] = 'J';
-        edgeArray['T' - 65] = 'B';
-        edgeArray['V' - 65] = 'T';
-        edgeArray['J' - 65] = 'V';
-        edgeArray['M' - 65] = 'P';
-        edgeArray['N' - 65] = 'M';
-        edgeArray['O' - 65] = 'N';
-        edgeArray['P' - 65] = 'O';
-        this.edgeStatus = String.valueOf(edgeArray);
+        char[] currEdges = edgeStatus.toCharArray();
+        char[] afterEdges = currEdges.clone();
+        afterEdges['B' - 65] = currEdges['J' - 65];
+        afterEdges['T' - 65] = currEdges['B' - 65];
+        afterEdges['V' - 65] = currEdges['T' - 65];
+        afterEdges['J' - 65] = currEdges['V' - 65];
+        afterEdges['M' - 65] = currEdges['P' - 65];
+        afterEdges['N' - 65] = currEdges['M' - 65];
+        afterEdges['O' - 65] = currEdges['N' - 65];
+        afterEdges['P' - 65] = currEdges['O' - 65];
+        this.edgeStatus = String.valueOf(afterEdges);
 
-        char[] cornerArray = cornerStatus.toCharArray();
-        cornerArray['B' - 65] = 'J';
-        cornerArray['T' - 65] = 'B';
-        cornerArray['V' - 65] = 'T';
-        cornerArray['J' - 65] = 'V';
-        cornerArray['C' - 65] = 'K';
-        cornerArray['Q' - 65] = 'C';
-        cornerArray['W' - 65] = 'Q';
-        cornerArray['K' - 65] = 'W';
-        cornerArray['M' - 65] = 'P';
-        cornerArray['N' - 65] = 'M';
-        cornerArray['O' - 65] = 'N';
-        cornerArray['P' - 65] = 'O';
-        this.cornerStatus = String.valueOf(cornerArray);
+        char[] currCorners = cornerStatus.toCharArray();
+        char[] afterCorners = currCorners.clone();
+        afterCorners['B' - 65] = currCorners['J' - 65];
+        afterCorners['T' - 65] = currCorners['B' - 65];
+        afterCorners['V' - 65] = currCorners['T' - 65];
+        afterCorners['J' - 65] = currCorners['V' - 65];
+        afterCorners['C' - 65] = currCorners['K' - 65];
+        afterCorners['Q' - 65] = currCorners['C' - 65];
+        afterCorners['W' - 65] = currCorners['Q' - 65];
+        afterCorners['K' - 65] = currCorners['W' - 65];
+        afterCorners['M' - 65] = currCorners['P' - 65];
+        afterCorners['N' - 65] = currCorners['M' - 65];
+        afterCorners['O' - 65] = currCorners['N' - 65];
+        afterCorners['P' - 65] = currCorners['O' - 65];
+        this.cornerStatus = String.valueOf(afterCorners);
     }
 
     @Override
@@ -211,7 +213,6 @@ public class Cube3x3 extends Cube {
                 turns = 3;
             } else {
                 System.out.printf("%s is not a valid move, was executed as %c\n", move, move.charAt(0));
-                return;
             }
         } else if (move.length() != 1) {
             System.out.printf("%s is not a valid move, was not executed\n", move);
@@ -236,19 +237,10 @@ public class Cube3x3 extends Cube {
 
     @Override
     public void applyScramble(String scramble) {
-        int pointer = 0;
-        String move = " ";
-        for (int i = 0; i < scramble.length(); i++) {
-            if (scramble.charAt(i) == ' ') {
-                move = scramble.substring(pointer, i);
-                System.out.printf("\nMOVE THAT SHOULD BE MADE \"%s\"\n", move);
-                pointer = i + 1;
-            }
+        String[] moves = scramble.split(" ");
+        for (String move : moves) {
             apply_move(move);
         }
-        move = scramble.substring(pointer);
-        System.out.printf(String.format("\nMOVE THAT SHOULD BE MADE \"%s\"\n", move));
-        apply_move(move);
     }
 
     @Override
