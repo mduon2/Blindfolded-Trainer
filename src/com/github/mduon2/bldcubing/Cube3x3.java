@@ -60,147 +60,157 @@ public class Cube3x3 extends Cube {
 
     @Override
     protected void applyL() { //virtual
-        char[] edgeArray = edgeStatus.toCharArray();
-        edgeArray['D' - 65] = 'R';
-        edgeArray['R' - 65] = 'X';
-        edgeArray['X' - 65] = 'L';
-        edgeArray['L' - 65] = 'D';
-        edgeArray['E' - 65] = 'H';
-        edgeArray['F' - 65] = 'E';
-        edgeArray['G' - 65] = 'F';
-        edgeArray['H' - 65] = 'G';
-        this.edgeStatus = String.valueOf(edgeArray);
+        char[] currEdges = edgeStatus.toCharArray();
+        char[] afterEdges = currEdges.clone();
+        afterEdges['D' - 65] = currEdges['R' - 65];
+        afterEdges['R' - 65] = currEdges['X' - 65];
+        afterEdges['X' - 65] = currEdges['L' - 65];
+        afterEdges['L' - 65] = currEdges['D' - 65];
+        afterEdges['E' - 65] = currEdges['H' - 65];
+        afterEdges['F' - 65] = currEdges['E' - 65];
+        afterEdges['G' - 65] = currEdges['F' - 65];
+        afterEdges['H' - 65] = currEdges['G' - 65];
+        this.edgeStatus = String.valueOf(afterEdges);
 
-        char[] cornerArray = cornerStatus.toCharArray();
-        cornerArray['D' - 65] = 'R';
-        cornerArray['R' - 65] = 'X';
-        cornerArray['X' - 65] = 'L';
-        cornerArray['L' - 65] = 'D';
-        cornerArray['A' - 65] = 'S';
-        cornerArray['S' - 65] = 'U';
-        cornerArray['U' - 65] = 'I';
-        cornerArray['I' - 65] = 'A';
-        cornerArray['E' - 65] = 'H';
-        cornerArray['F' - 65] = 'E';
-        cornerArray['G' - 65] = 'F';
-        cornerArray['H' - 65] = 'G';
-        this.cornerStatus = String.valueOf(cornerArray);
+        char[] currCorners = cornerStatus.toCharArray();
+        char[] afterCorners = currCorners.clone();
+        afterCorners['D' - 65] = currCorners['R' - 65];
+        afterCorners['R' - 65] = currCorners['X' - 65];
+        afterCorners['X' - 65] = currCorners['L' - 65];
+        afterCorners['L' - 65] = currCorners['D' - 65];
+        afterCorners['A' - 65] = currCorners['S' - 65];
+        afterCorners['S' - 65] = currCorners['U' - 65];
+        afterCorners['U' - 65] = currCorners['I' - 65];
+        afterCorners['I' - 65] = currCorners['A' - 65];
+        afterCorners['E' - 65] = currCorners['H' - 65];
+        afterCorners['F' - 65] = currCorners['E' - 65];
+        afterCorners['G' - 65] = currCorners['F' - 65];
+        afterCorners['H' - 65] = currCorners['G' - 65];
+        this.cornerStatus = String.valueOf(afterCorners);
     }
 
     @Override
     protected void applyU() { //virtual
-        char[] edgeArray = edgeStatus.toCharArray();
-        edgeArray['I' - 65] = 'M';
-        edgeArray['E' - 65] = 'I';
-        edgeArray['Q' - 65] = 'E';
-        edgeArray['M' - 65] = 'Q';
-        edgeArray['A' - 65] = 'D';
-        edgeArray['B' - 65] = 'A';
-        edgeArray['C' - 65] = 'B';
-        edgeArray['D' - 65] = 'C';
-        this.edgeStatus = String.valueOf(edgeArray);
+        char[] currEdges = edgeStatus.toCharArray();
+        char[] afterEdges = currEdges.clone();
+        afterEdges['I' - 65] = currEdges['M' - 65];
+        afterEdges['E' - 65] = currEdges['I' - 65];
+        afterEdges['Q' - 65] = currEdges['E' - 65];
+        afterEdges['M' - 65] = currEdges['Q' - 65];
+        afterEdges['A' - 65] = currEdges['D' - 65];
+        afterEdges['B' - 65] = currEdges['A' - 65];
+        afterEdges['C' - 65] = currEdges['B' - 65];
+        afterEdges['D' - 65] = currEdges['C' - 65];
+        this.edgeStatus = String.valueOf(afterEdges);
 
-        char[] cornerArray = cornerStatus.toCharArray();
-        cornerArray['I' - 65] = 'M';
-        cornerArray['E' - 65] = 'I';
-        cornerArray['Q' - 65] = 'E';
-        cornerArray['M' - 65] = 'Q';
-        cornerArray['J' - 65] = 'N';
-        cornerArray['F' - 65] = 'J';
-        cornerArray['R' - 65] = 'F';
-        cornerArray['N' - 65] = 'R';
-        cornerArray['A' - 65] = 'D';
-        cornerArray['B' - 65] = 'A';
-        cornerArray['C' - 65] = 'B';
-        cornerArray['D' - 65] = 'C';
-        this.cornerStatus = String.valueOf(cornerArray);
+        char[] currCorners = cornerStatus.toCharArray();
+        char[] afterCorners = currCorners.clone();
+        afterCorners['I' - 65] = currCorners['M' - 65];
+        afterCorners['E' - 65] = currCorners['I' - 65];
+        afterCorners['Q' - 65] = currCorners['E' - 65];
+        afterCorners['M' - 65] = currCorners['Q' - 65];
+        afterCorners['J' - 65] = currCorners['N' - 65];
+        afterCorners['F' - 65] = currCorners['J' - 65];
+        afterCorners['R' - 65] = currCorners['F' - 65];
+        afterCorners['N' - 65] = currCorners['R' - 65];
+        afterCorners['A' - 65] = currCorners['D' - 65];
+        afterCorners['B' - 65] = currCorners['A' - 65];
+        afterCorners['C' - 65] = currCorners['B' - 65];
+        afterCorners['D' - 65] = currCorners['C' - 65];
+        this.cornerStatus = String.valueOf(afterCorners);
     }
 
     @Override
     protected void applyD() { //virtual
-        char[] edgeArray = edgeStatus.toCharArray();
-        edgeArray['K' - 65] = 'G';
-        edgeArray['G' - 65] = 'S';
-        edgeArray['S' - 65] = 'O';
-        edgeArray['O' - 65] = 'K';
-        edgeArray['U' - 65] = 'X';
-        edgeArray['V' - 65] = 'U';
-        edgeArray['W' - 65] = 'V';
-        edgeArray['X' - 65] = 'W';
-        this.edgeStatus = String.valueOf(edgeArray);
+        char[] currEdges = edgeStatus.toCharArray();
+        char[] afterEdges = currEdges.clone();
+        afterEdges['K' - 65] = currEdges['G' - 65];
+        afterEdges['G' - 65] = currEdges['S' - 65];
+        afterEdges['S' - 65] = currEdges['O' - 65];
+        afterEdges['O' - 65] = currEdges['K' - 65];
+        afterEdges['U' - 65] = currEdges['X' - 65];
+        afterEdges['V' - 65] = currEdges['U' - 65];
+        afterEdges['W' - 65] = currEdges['V' - 65];
+        afterEdges['X' - 65] = currEdges['W' - 65];
+        this.edgeStatus = String.valueOf(afterEdges);
 
-        char[] cornerArray = cornerStatus.toCharArray();
-        cornerArray['K' - 65] = 'G';
-        cornerArray['G' - 65] = 'S';
-        cornerArray['S' - 65] = 'O';
-        cornerArray['O' - 65] = 'K';
-        cornerArray['L' - 65] = 'H';
-        cornerArray['H' - 65] = 'T';
-        cornerArray['T' - 65] = 'P';
-        cornerArray['P' - 65] = 'L';
-        cornerArray['U' - 65] = 'X';
-        cornerArray['V' - 65] = 'U';
-        cornerArray['W' - 65] = 'V';
-        cornerArray['X' - 65] = 'W';
-        this.cornerStatus = String.valueOf(cornerArray);
+        char[] currCorners = cornerStatus.toCharArray();
+        char[] afterCorners = currCorners.clone();
+        afterCorners['K' - 65] = currCorners['G' - 65];
+        afterCorners['G' - 65] = currCorners['S' - 65];
+        afterCorners['S' - 65] = currCorners['O' - 65];
+        afterCorners['O' - 65] = currCorners['K' - 65];
+        afterCorners['L' - 65] = currCorners['H' - 65];
+        afterCorners['H' - 65] = currCorners['T' - 65];
+        afterCorners['T' - 65] = currCorners['P' - 65];
+        afterCorners['P' - 65] = currCorners['L' - 65];
+        afterCorners['U' - 65] = currCorners['X' - 65];
+        afterCorners['V' - 65] = currCorners['U' - 65];
+        afterCorners['W' - 65] = currCorners['V' - 65];
+        afterCorners['X' - 65] = currCorners['W' - 65];
+        this.cornerStatus = String.valueOf(afterCorners);
     }
 
     @Override
     protected void applyF() { //virtual
-        char[] edgeArray = edgeStatus.toCharArray();
-        edgeArray['C' - 65] = 'F';
-        edgeArray['P' - 65] = 'C';
-        edgeArray['U' - 65] = 'P';
-        edgeArray['F' - 65] = 'U';
-        edgeArray['I' - 65] = 'L';
-        edgeArray['J' - 65] = 'I';
-        edgeArray['K' - 65] = 'J';
-        edgeArray['L' - 65] = 'K';
-        this.edgeStatus = String.valueOf(edgeArray);
+        char[] currEdges = edgeStatus.toCharArray();
+        char[] afterEdges = currEdges.clone();
+        afterEdges['C' - 65] = currEdges['F' - 65];
+        afterEdges['P' - 65] = currEdges['C' - 65];
+        afterEdges['U' - 65] = currEdges['P' - 65];
+        afterEdges['F' - 65] = currEdges['U' - 65];
+        afterEdges['I' - 65] = currEdges['L' - 65];
+        afterEdges['J' - 65] = currEdges['I' - 65];
+        afterEdges['K' - 65] = currEdges['J' - 65];
+        afterEdges['L' - 65] = currEdges['K' - 65];
+        this.edgeStatus = String.valueOf(afterEdges);
 
-        char[] cornerArray = cornerStatus.toCharArray();
-        cornerArray['C' - 65] = 'F';
-        cornerArray['P' - 65] = 'C';
-        cornerArray['U' - 65] = 'P';
-        cornerArray['F' - 65] = 'U';
-        cornerArray['D' - 65] = 'G';
-        cornerArray['M' - 65] = 'D';
-        cornerArray['V' - 65] = 'M';
-        cornerArray['G' - 65] = 'V';
-        cornerArray['I' - 65] = 'L';
-        cornerArray['J' - 65] = 'I';
-        cornerArray['K' - 65] = 'J';
-        cornerArray['L' - 65] = 'K';
-        this.cornerStatus = String.valueOf(cornerArray);
+        char[] currCorners = cornerStatus.toCharArray();
+        char[] afterCorners = currCorners.clone();
+        afterCorners['C' - 65] = currCorners['F' - 65];
+        afterCorners['P' - 65] = currCorners['C' - 65];
+        afterCorners['U' - 65] = currCorners['P' - 65];
+        afterCorners['F' - 65] = currCorners['U' - 65];
+        afterCorners['D' - 65] = currCorners['G' - 65];
+        afterCorners['M' - 65] = currCorners['D' - 65];
+        afterCorners['V' - 65] = currCorners['M' - 65];
+        afterCorners['G' - 65] = currCorners['V' - 65];
+        afterCorners['I' - 65] = currCorners['L' - 65];
+        afterCorners['J' - 65] = currCorners['I' - 65];
+        afterCorners['K' - 65] = currCorners['J' - 65];
+        afterCorners['L' - 65] = currCorners['K' - 65];
+        this.cornerStatus = String.valueOf(afterCorners);
     }
 
     @Override
     protected void applyB() { //virtual
-        char[] edgeArray = edgeStatus.toCharArray();
-        edgeArray['A' - 65] = 'N';
-        edgeArray['H' - 65] = 'A';
-        edgeArray['W' - 65] = 'H';
-        edgeArray['N' - 65] = 'W';
-        edgeArray['Q' - 65] = 'T';
-        edgeArray['R' - 65] = 'Q';
-        edgeArray['S' - 65] = 'R';
-        edgeArray['T' - 65] = 'S';
-        this.edgeStatus = String.valueOf(edgeArray);
+        char[] currEdges = edgeStatus.toCharArray();
+        char[] afterEdges = currEdges.clone();
+        afterEdges['A' - 65] = currEdges['N' - 65];
+        afterEdges['H' - 65] = currEdges['A' - 65];
+        afterEdges['W' - 65] = currEdges['H' - 65];
+        afterEdges['N' - 65] = currEdges['W' - 65];
+        afterEdges['Q' - 65] = currEdges['T' - 65];
+        afterEdges['R' - 65] = currEdges['Q' - 65];
+        afterEdges['S' - 65] = currEdges['R' - 65];
+        afterEdges['T' - 65] = currEdges['S' - 65];
+        this.edgeStatus = String.valueOf(afterEdges);
 
-        char[] cornerArray = cornerStatus.toCharArray();
-        cornerArray['A' - 65] = 'N';
-        cornerArray['H' - 65] = 'A';
-        cornerArray['W' - 65] = 'H';
-        cornerArray['N' - 65] = 'W';
-        cornerArray['B' - 65] = 'O';
-        cornerArray['E' - 65] = 'B';
-        cornerArray['X' - 65] = 'E';
-        cornerArray['O' - 65] = 'X';
-        cornerArray['Q' - 65] = 'T';
-        cornerArray['R' - 65] = 'Q';
-        cornerArray['S' - 65] = 'R';
-        cornerArray['T' - 65] = 'S';
-        this.cornerStatus = String.valueOf(cornerArray);
+        char[] currCorners = cornerStatus.toCharArray();
+        char[] afterCorners = currCorners.clone();
+        afterCorners['A' - 65] = currCorners['N' - 65];
+        afterCorners['H' - 65] = currCorners['A' - 65];
+        afterCorners['W' - 65] = currCorners['H' - 65];
+        afterCorners['N' - 65] = currCorners['W' - 65];
+        afterCorners['B' - 65] = currCorners['O' - 65];
+        afterCorners['E' - 65] = currCorners['B' - 65];
+        afterCorners['X' - 65] = currCorners['E' - 65];
+        afterCorners['O' - 65] = currCorners['X' - 65];
+        afterCorners['Q' - 65] = currCorners['T' - 65];
+        afterCorners['R' - 65] = currCorners['Q' - 65];
+        afterCorners['S' - 65] = currCorners['R' - 65];
+        afterCorners['T' - 65] = currCorners['S' - 65];
+        this.cornerStatus = String.valueOf(afterCorners);
     }
 
     private void apply_move(String move) {
