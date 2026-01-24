@@ -1,16 +1,17 @@
 package com.github.mduon2.bldcubing;
 
 public class Cube3x3 extends Cube {
+    protected static final String SOLVED_EDGES = "ABCDEFGHIJKLMNOPQRSTUVWX";
+    protected static final String SOLVED_CORNERS = "ABCDEFGHIJKLMNOPQRSTUVWX";
     Cube3x3() {
-        edgeStatus = "ABCDEFGHIJKLMNOPQRSTUVWX";
-        cornerStatus = "ABCDEFGHIJKLMNOPQRSTUVWX";
+        this.edgeStatus = SOLVED_EDGES;
+        this.cornerStatus = SOLVED_CORNERS;
     }
     Cube3x3(String edges, String corners) {
-        edgeStatus = edges;
-        cornerStatus = corners;
+        this.edgeStatus = edges;
+        this.cornerStatus = corners;
     }
 
-    @Override
     protected char isColour(char piece) {
         if (piece - 65 < 4) { //A-D is white
             return 'W';
@@ -27,7 +28,6 @@ public class Cube3x3 extends Cube {
         }
     }
 
-    @Override
     protected void applyR() { //virtual
         char[] currEdges = edgeStatus.toCharArray();
         char[] afterEdges = currEdges.clone();
@@ -58,7 +58,6 @@ public class Cube3x3 extends Cube {
         this.cornerStatus = String.valueOf(afterCorners);
     }
 
-    @Override
     protected void applyL() { //virtual
         char[] currEdges = edgeStatus.toCharArray();
         char[] afterEdges = currEdges.clone();
@@ -89,7 +88,6 @@ public class Cube3x3 extends Cube {
         this.cornerStatus = String.valueOf(afterCorners);
     }
 
-    @Override
     protected void applyU() { //virtual
         char[] currEdges = edgeStatus.toCharArray();
         char[] afterEdges = currEdges.clone();
@@ -120,7 +118,6 @@ public class Cube3x3 extends Cube {
         this.cornerStatus = String.valueOf(afterCorners);
     }
 
-    @Override
     protected void applyD() { //virtual
         char[] currEdges = edgeStatus.toCharArray();
         char[] afterEdges = currEdges.clone();
@@ -151,7 +148,6 @@ public class Cube3x3 extends Cube {
         this.cornerStatus = String.valueOf(afterCorners);
     }
 
-    @Override
     protected void applyF() { //virtual
         char[] currEdges = edgeStatus.toCharArray();
         char[] afterEdges = currEdges.clone();
@@ -182,7 +178,6 @@ public class Cube3x3 extends Cube {
         this.cornerStatus = String.valueOf(afterCorners);
     }
 
-    @Override
     protected void applyB() { //virtual
         char[] currEdges = edgeStatus.toCharArray();
         char[] afterEdges = currEdges.clone();
@@ -245,7 +240,6 @@ public class Cube3x3 extends Cube {
         }
     }
 
-    @Override
     public void applyScramble(String scramble) {
         String[] moves = scramble.split(" ");
         for (String move : moves) {
@@ -253,20 +247,17 @@ public class Cube3x3 extends Cube {
         }
     }
 
-    @Override
     protected void white_and_yellow_spacing() {
         for (int i = 0; i < 8; i++) {
             System.out.print(" ");
         }
     }
-
-    @Override
+    
     protected void white_and_yellow_borders() {
         System.out.println();
         white_and_yellow_spacing();
     }
-
-    @Override
+    
     protected void OGRB_borders() {
         for (int i = 0; i < 31; i++) {
             if (i % 8 != 0) {
@@ -277,7 +268,6 @@ public class Cube3x3 extends Cube {
         }
     }
 
-    @Override
     protected void showWhite() {
         white_and_yellow_spacing();
         for (int i = 0; i < 7; i++) {
@@ -306,8 +296,7 @@ public class Cube3x3 extends Cube {
         line = String.format("|%c|%c|%c|\n", isColour(cornerStatus.charAt(3)), isColour(edgeStatus.charAt(2)), isColour(cornerStatus.charAt(2)));
         System.out.print(line);
     }
-
-    @Override
+    
     protected void showYellow() {
         white_and_yellow_spacing();
         for (int i = 0; i < 7; i++) {
@@ -336,8 +325,7 @@ public class Cube3x3 extends Cube {
         line = String.format("|%c|%c|%c|\n", isColour(cornerStatus.charAt(23)), isColour(edgeStatus.charAt(22)), isColour(cornerStatus.charAt(22)));
         System.out.print(line);
     }
-
-    @Override
+    
     protected void showOGRB() {
         OGRB_borders();
 
@@ -354,11 +342,23 @@ public class Cube3x3 extends Cube {
         line = String.format("\n|%c|%c|%c| |%c|%c|%c| |%c|%c|%c| |%c|%c|%c|\n", isColour(cornerStatus.charAt(7)), isColour(edgeStatus.charAt(6)), isColour(cornerStatus.charAt(6)), isColour(cornerStatus.charAt(11)), isColour(edgeStatus.charAt(10)), isColour(cornerStatus.charAt(10)), isColour(cornerStatus.charAt(15)), isColour(edgeStatus.charAt(14)), isColour(cornerStatus.charAt(14)), isColour(cornerStatus.charAt(19)), isColour(edgeStatus.charAt(18)), isColour(cornerStatus.charAt(18)));
         System.out.print(line);
     }
-
-    @Override
+    
     public void showCube() {
         showWhite();
         showOGRB();
         showYellow();
     }
+
+    public String edgeSolution() {
+        return "";
+    }
+
+    public String cornerSolution() {
+        return "";
+    }
+
+    public Boolean isSolved() {
+        return edgeStatus.equals(SOLVED_EDGES) && cornerStatus.equals(SOLVED_CORNERS);
+    }
+
 }

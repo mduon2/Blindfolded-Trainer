@@ -6,77 +6,41 @@ public abstract class Cube {
 
     //no constructor because abstract class, trivial
 
-    protected char isColour(char piece) { //virtual
-        return ' ';
-    }
+    protected abstract char isColour(char piece);
 
-    protected void applyR() { //virtual
-        return;
-    }
+    protected abstract void applyR();
 
-    protected void applyL() { //virtual
-        return;
-    }
+    protected abstract void applyL();
 
-    protected void applyU() { //virtual
-        return;
-    }
+    protected abstract void applyU();
 
-    protected void applyD() { //virtual
-        return;
-    }
+    protected abstract void applyD();
 
-    protected void applyF() { //virtual
-        return;
-    }
+    protected abstract void applyF();
 
-    protected void applyB() { //virtual
-        return;
-    }
+    protected abstract void applyB();
 
-    public void applyScramble(String scramble) { //virtual
-        return;
-    }
+    public abstract void applyScramble(String scramble);
 
-    protected void white_and_yellow_spacing() { //virtual
-        return;
-    }
+    protected abstract void white_and_yellow_spacing();
 
-    protected void white_and_yellow_borders() { //virtual
-        return;
-    }
+    protected abstract void white_and_yellow_borders();
 
-    protected void OGRB_borders() { //virtual
-        return;
-    }
+    protected abstract void OGRB_borders();
 
-    protected void showWhite() { //virtual
-        return;
-    }
+    protected abstract void showWhite();
 
-    protected void showYellow() { //virtual
-        return;
-    }
+    protected abstract void showYellow();
 
-    protected void showOGRB() { //virtual
-        return;
-    }
+    protected abstract void showOGRB();
 
-    public void showCube() { //virtual
+    public abstract void showCube();
 
-    }
+    public abstract String edgeSolution();
 
-    public String edgeSolution() {
-        return "";
-    } //virtual
+    public abstract String cornerSolution();
 
-    public String cornerSolution() {
-        return "";
-    } //virtual
-
-    public Boolean isSolved() {
-        return true;
-    }
+    public abstract Boolean isSolved();
 
     public String get_edgeStatus() {
         return edgeStatus;
