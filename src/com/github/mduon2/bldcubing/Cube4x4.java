@@ -61,12 +61,16 @@ public class Cube4x4 extends Cube {
 
     }
 
-    public String edgeSolution() {
-        return "";
+    protected String edgeSolution() {
+        return ""; //remove once implemented
     }
 
-    public String cornerSolution() {
-        return "";
+    protected String cornerSolution() {
+        return ""; //remove once implemented
+    }
+
+    public void showSolution() {
+
     }
 
     public Boolean isSolved() {

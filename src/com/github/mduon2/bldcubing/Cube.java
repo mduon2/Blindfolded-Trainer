@@ -36,9 +36,11 @@ public abstract class Cube {
 
     public abstract void showCube();
 
-    public abstract String edgeSolution();
+    protected abstract String edgeSolution();
 
-    public abstract String cornerSolution();
+    protected abstract String cornerSolution();
+
+    public abstract void showSolution();
 
     public abstract Boolean isSolved();
 

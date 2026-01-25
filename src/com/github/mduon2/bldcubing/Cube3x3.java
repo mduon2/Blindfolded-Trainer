@@ -349,12 +349,40 @@ public class Cube3x3 extends Cube {
         showYellow();
     }
 
-    public String edgeSolution() {
-        return "";
+    /**
+     * @param piece1 Index of first piece to be swapped (buffer)
+     * @param piece2 Index of second piece to be swapped (setup)
+     * @param isEdge Indicates if it's an edge piece
+     */
+    private void swap(int piece1, int piece2, boolean isEdge) {
+        //swap
     }
 
-    public String cornerSolution() {
-        return "";
+    protected String edgeSolution() {
+        while (!isSolved()) {
+            if (edgeStatus.charAt(1) == 'B') {
+                //search for first unsolved edge and swap it into the buffer
+            }
+            //swap buffer and setup to solve edge that was in buffer
+        }
+        return ""; //remove once implemented
+    }
+
+    protected String cornerSolution() {
+        while (!isSolved()) {
+            if (cornerStatus.charAt(0) == 'P') {
+                //search for first unsolved corner and swap it into the buffer
+            }
+            //swap buffer and setup to solve corner that was in buffer
+        }
+        return ""; //remove once implemented
+    }
+
+    /**
+     * Shows the corner and edge solutions in pairs of 2 (e.g. ME IL TX...) and states if there's parity
+     */
+    public void showSolution() {
+
     }
 
     public Boolean isSolved() {
