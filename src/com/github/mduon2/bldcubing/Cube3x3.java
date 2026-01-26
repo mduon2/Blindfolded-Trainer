@@ -373,10 +373,10 @@ public class Cube3x3 extends Cube {
     protected String edgeSolution() {
         StringBuilder solution = new StringBuilder();
         while (!edgeStatus.equals(SOLVED_EDGES)) {
-            if (edgeStatus.charAt(1) - 65 == 1) {
+            if (edgeStatus.charAt(1) - 65 == 1) { //if buffer is solved
                 for (int i = 0 ; i < 24; i++) {
                     if (edgeStatus.charAt(i) - 65 != i) {
-                        solution.append(edgeStatus.charAt(i));
+                        solution.append((char) (i + 65));
                         swap(1, i, true);
                         break;
                     }
@@ -393,10 +393,10 @@ public class Cube3x3 extends Cube {
     protected String cornerSolution() {
         StringBuilder solution = new StringBuilder();
         while (!cornerStatus.equals(SOLVED_CORNERS)) {
-            if (cornerStatus.charAt(0) - 65 == 0) {
+            if (cornerStatus.charAt(0) - 65 == 0) { //if buffer is solved
                 for (int i = 0 ; i < 24; i++) {
                     if (cornerStatus.charAt(i) - 65 != i) {
-                        solution.append(cornerStatus.charAt(i));
+                        solution.append((char) (i + 65));
                         swap(0, i, false);
                         break;
                     }
