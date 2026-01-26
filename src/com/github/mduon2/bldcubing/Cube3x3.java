@@ -362,18 +362,18 @@ public class Cube3x3 extends Cube {
             edgeArray[piece2] = temp;
             this.edgeStatus = String.valueOf(edgeArray);
         } else {
-            char[] cornerArray = edgeStatus.toCharArray();
+            char[] cornerArray = cornerStatus.toCharArray();
             char temp = cornerArray[piece1];
             cornerArray[piece1] = cornerArray[piece2];
             cornerArray[piece2] = temp;
-            this.edgeStatus = String.valueOf(cornerArray);
+            this.cornerStatus = String.valueOf(cornerArray);
         }
     }
 
     protected String edgeSolution() {
         StringBuilder solution = new StringBuilder();
-        while (!isSolved()) {
-            if (edgeStatus.charAt(1) == 'B') {
+        while (!edgeStatus.equals(SOLVED_EDGES)) {
+            if (edgeStatus.charAt(1) - 65 == 1) {
                 for (int i = 0 ; i < 24; i++) {
                     if (edgeStatus.charAt(i) - 65 != i) {
                         solution.append(edgeStatus.charAt(i));
@@ -392,12 +392,12 @@ public class Cube3x3 extends Cube {
 
     protected String cornerSolution() {
         StringBuilder solution = new StringBuilder();
-        while (!isSolved()) {
-            if (cornerStatus.charAt(0) == 'A') {
+        while (!cornerStatus.equals(SOLVED_CORNERS)) {
+            if (cornerStatus.charAt(0) - 65 == 0) {
                 for (int i = 0 ; i < 24; i++) {
                     if (cornerStatus.charAt(i) - 65 != i) {
                         solution.append(cornerStatus.charAt(i));
-                        swap(1, i, false);
+                        swap(0, i, false);
                         break;
                     }
                 }
@@ -414,29 +414,35 @@ public class Cube3x3 extends Cube {
      * Shows the corner and edge solutions in pairs of 2 (e.g. ME IL TX...) and states if there's parity
      */
     public void showSolution() {
-        System.out.println("Solution for the corners:");
-        for (int i = 0; i < cornerSolution().length(); i++) {
-            System.out.print(cornerSolution().charAt(i));
-            if (i % 2 == 1) {
-                System.out.print(" ");
-            }
-        }
+        String corner_solution = cornerSolution(), edge_solution = edgeSolution();
 
-        System.out.println("\n");
-        if (edgeSolution().length() % 2 == 0) {
-            System.out.println("No Parity\n");
+        if (isSolved()) {
+            System.out.println("Solution for the corners:");
+            for (int i = 0; i < corner_solution.length(); i++) {
+                System.out.print(corner_solution.charAt(i));
+                if (i % 2 == 1) {
+                    System.out.print(" ");
+                }
+            }
+
+            System.out.println("\n");
+            if (edge_solution.length() % 2 == 0) {
+                System.out.println("No Parity\n");
+            } else {
+                System.out.println("Parity\n");
+            }
+
+            System.out.println("Solution for the edges:");
+            for (int i = 0; i < edge_solution.length(); i++) {
+                System.out.print(edge_solution.charAt(i));
+                if (i % 2 == 1) {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
         } else {
-            System.out.println("Parity\n");
+            System.out.println("!!Incorrect Solution Generated!!");
         }
-
-        System.out.println("Solution for the edges:");
-        for (int i = 0; i < edgeSolution().length(); i++) {
-            System.out.print(edgeSolution().charAt(i));
-            if (i % 2 == 1) {
-                System.out.print(" ");
-            }
-        }
-        System.out.println();
     }
 
     public Boolean isSolved() {
