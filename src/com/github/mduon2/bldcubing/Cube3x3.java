@@ -397,13 +397,13 @@ public class Cube3x3 extends Cube {
                 for (int i = 0 ; i < 24; i++) {
                     if (cornerStatus.charAt(i) - 65 != i) {
                         solution.append(cornerStatus.charAt(i));
-                        swap(1, i, true);
+                        swap(1, i, false);
                         break;
                     }
                 }
             } else {
                 solution.append(cornerStatus.charAt(0));
-                swap(0, cornerStatus.charAt(0) - 65, true);
+                swap(0, cornerStatus.charAt(0) - 65, false);
             }
 
         }
@@ -414,7 +414,29 @@ public class Cube3x3 extends Cube {
      * Shows the corner and edge solutions in pairs of 2 (e.g. ME IL TX...) and states if there's parity
      */
     public void showSolution() {
-        if ()
+        System.out.println("Solution for the corners:");
+        for (int i = 0; i < cornerSolution().length(); i++) {
+            System.out.print(cornerSolution().charAt(i));
+            if (i % 2 == 1) {
+                System.out.print(" ");
+            }
+        }
+
+        System.out.println("\n");
+        if (edgeSolution().length() % 2 == 0) {
+            System.out.println("No Parity\n");
+        } else {
+            System.out.println("Parity\n");
+        }
+
+        System.out.println("Solution for the edges:");
+        for (int i = 0; i < edgeSolution().length(); i++) {
+            System.out.print(edgeSolution().charAt(i));
+            if (i % 2 == 1) {
+                System.out.print(" ");
+            }
+        }
+        System.out.println();
     }
 
     public Boolean isSolved() {
