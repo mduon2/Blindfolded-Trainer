@@ -355,34 +355,66 @@ public class Cube3x3 extends Cube {
      * @param isEdge Indicates if it's an edge piece
      */
     private void swap(int piece1, int piece2, boolean isEdge) {
-        //swap
+        if (isEdge) {
+            char[] edgeArray = edgeStatus.toCharArray();
+            char temp = edgeArray[piece1];
+            edgeArray[piece1] = edgeArray[piece2];
+            edgeArray[piece2] = temp;
+            this.edgeStatus = String.valueOf(edgeArray);
+        } else {
+            char[] cornerArray = edgeStatus.toCharArray();
+            char temp = cornerArray[piece1];
+            cornerArray[piece1] = cornerArray[piece2];
+            cornerArray[piece2] = temp;
+            this.edgeStatus = String.valueOf(cornerArray);
+        }
     }
 
     protected String edgeSolution() {
+        StringBuilder solution = new StringBuilder();
         while (!isSolved()) {
             if (edgeStatus.charAt(1) == 'B') {
-                //search for first unsolved edge and swap it into the buffer
+                for (int i = 0 ; i < 24; i++) {
+                    if (edgeStatus.charAt(i) - 65 != i) {
+                        solution.append(edgeStatus.charAt(i));
+                        swap(1, i, true);
+                        break;
+                    }
+                }
+            } else {
+                solution.append(edgeStatus.charAt(1));
+                swap(1, edgeStatus.charAt(1) - 65, true);
             }
-            //swap buffer and setup to solve edge that was in buffer
+
         }
-        return ""; //remove once implemented
+        return solution.toString();
     }
 
     protected String cornerSolution() {
+        StringBuilder solution = new StringBuilder();
         while (!isSolved()) {
-            if (cornerStatus.charAt(0) == 'P') {
-                //search for first unsolved corner and swap it into the buffer
+            if (cornerStatus.charAt(0) == 'A') {
+                for (int i = 0 ; i < 24; i++) {
+                    if (cornerStatus.charAt(i) - 65 != i) {
+                        solution.append(cornerStatus.charAt(i));
+                        swap(1, i, true);
+                        break;
+                    }
+                }
+            } else {
+                solution.append(cornerStatus.charAt(0));
+                swap(0, cornerStatus.charAt(0) - 65, true);
             }
-            //swap buffer and setup to solve corner that was in buffer
+
         }
-        return ""; //remove once implemented
+        return solution.toString();
     }
 
     /**
      * Shows the corner and edge solutions in pairs of 2 (e.g. ME IL TX...) and states if there's parity
      */
     public void showSolution() {
-
+        if ()
     }
 
     public Boolean isSolved() {
